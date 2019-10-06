@@ -4,15 +4,34 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+// Importar modulos de Firebase
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+// Importo la configuración de la base de datos Firebase
+import { environment } from '../environments/environment';
+
+// COMPONENTES
+import { TelefonosComponent } from './components/telefonos/telefonos.component';
+import { ListadoTelefonosComponent } from './components/telefonos/listado-telefonos/listado-telefonos.component';
+import { TelefonoComponent } from './components/telefonos/telefono/telefono.component';
+
+// SERVICIOS
+import { TelefonoService } from './services/telefono.service';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TelefonosComponent,
+    ListadoTelefonosComponent,
+    TelefonoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [TelefonoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
