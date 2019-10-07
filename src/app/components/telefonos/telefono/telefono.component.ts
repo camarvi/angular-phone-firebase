@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+// IMPORTAR EL SERVICIO
+
+import { TelefonoService } from '../../../services/telefono.service';
+
 @Component({
   selector: 'app-telefono',
   templateUrl: './telefono.component.html',
@@ -7,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TelefonoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private telefonoService : TelefonoService) { }
 
   ngOnInit() {
   }

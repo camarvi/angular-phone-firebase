@@ -1,1 +1,27 @@
-<p>telefono works!</p>
+<div class="card mt-5">
+    <div class="card-body">
+        <form #phoneForm="ngForm" (ngSubmit)="onSubmit(phoneForm)">
+            <div class="form-group">
+                <input type="text" class="form-control" name="name" #name="ngModel"
+                    [(ngModel)]="telefonoService.selectedTelefono.centro" placeholder="Añadir centro">
+
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="ubicacion" #ubicacion="ngModel"
+                    [(ngModel)]="telefonoService.selectedTelefono.ubicacion" placeholder="Añadir ubicacion">
+
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="numero" #numero="ngModel"
+                    [(ngModel)]="telefonoService.selectedTelefono.numero" placeholder="Añadir numero">
+
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-plus-circle"></i> Nueva Entrada
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

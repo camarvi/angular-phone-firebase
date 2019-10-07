@@ -11,7 +11,7 @@ import { Telefono } from '../models/telefono';
 export class TelefonoService {
 
   listaTelefonos : AngularFireList<any>;
-  selectTelefono : Telefono = new Telefono(); //Se inicializa a vacio
+  selectedTelefono : Telefono = new Telefono(); //Se inicializa a vacio
 
   constructor(private firebase : AngularFireDatabase) { }
 
