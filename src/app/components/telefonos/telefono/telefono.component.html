@@ -2,7 +2,7 @@
     <div class="card-body">
         <form #phoneForm="ngForm" (ngSubmit)="onSubmit(phoneForm)">
             <div class="form-group">
-                <input type="text" class="form-control" name="name" #name="ngModel"
+                <input type="text" class="form-control" name="centro" #centro="ngModel"
                     [(ngModel)]="telefonoService.selectedTelefono.centro" placeholder="Añadir centro">
 
             </div>
@@ -20,6 +20,9 @@
             <div class="form-group">
                 <button class="btn btn-primary" type="submit">
                     <i class="fas fa-plus-circle"></i> Nueva Entrada
+                </button>
+                <button class="btn btn-secondary" type="reset" (click)="resetForm(phoneForm)">
+                    <i class="fas fa-sync-alt"></i>Reset
                 </button>
             </div>
         </form>

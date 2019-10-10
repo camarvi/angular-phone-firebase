@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
+
 // IMPORTAR MODELO DE DATOS
 import { Telefono } from '../models/telefono';
 
@@ -10,8 +11,8 @@ import { Telefono } from '../models/telefono';
 })
 export class TelefonoService {
 
-  listaTelefonos : AngularFireList<any>;
-  selectedTelefono : Telefono = new Telefono(); //Se inicializa a vacio
+  public listaTelefonos : AngularFireList<any>;
+  public selectedTelefono : Telefono = new Telefono(); //Se inicializa a vacio
 
   constructor(private firebase : AngularFireDatabase) { }
 
@@ -40,4 +41,18 @@ export class TelefonoService {
   deleteTelefono(telefono : Telefono){
     this.listaTelefonos.remove(telefono.$key);
   }
+
+
+  filtratelefono(filtro:string) {
+    this.listaTelefonos = this.firebase.list('telefonos'), {
+      query : {
+        orderByChild : 'centro',
+        equalTo : filtro
+      }
+    } 
+
+    return this.listaTelefonos;
+  }
+
+  
 }
