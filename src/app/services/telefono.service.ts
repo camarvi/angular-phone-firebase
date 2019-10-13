@@ -38,12 +38,12 @@ export class TelefonoService {
     })
   }
 
-  deleteTelefono(telefono : Telefono){
-    this.listaTelefonos.remove(telefono.$key);
+  deleteTelefono($key : string){
+    this.listaTelefonos.remove($key);
   }
 
 
-  filtratelefono(filtro:string) {
+  /*filtratelefono(filtro:string) {
     this.listaTelefonos = this.firebase.list('telefonos'), {
       query : {
         orderByChild : 'centro',
@@ -53,6 +53,6 @@ export class TelefonoService {
 
     return this.listaTelefonos;
   }
-
+*/
   
 }

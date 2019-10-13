@@ -6,6 +6,8 @@ import { NgForm } from '@angular/forms';
 
 import { TelefonoService } from '../../../services/telefono.service';
 
+import { ToastrService } from 'ngx-toastr';
+
 //IMPORTAR EL MODELO
 
 import { Telefono } from '../../../models/telefono';
@@ -17,7 +19,9 @@ import { Telefono } from '../../../models/telefono';
 })
 export class TelefonoComponent implements OnInit {
 
-  constructor(private telefonoService : TelefonoService) { }
+  constructor(private telefonoService : TelefonoService,
+      private toastr_service : ToastrService  
+    ) { }
 
   ngOnInit() {
     this.telefonoService.getTelefonos();
@@ -27,8 +31,14 @@ export class TelefonoComponent implements OnInit {
   }
   
   onSubmit(phoneForm){
-    console.log(phoneForm.value)
-    this.telefonoService.insertTelefono(phoneForm.value);
+    if (phoneForm.value.$key == null) {  //SE INSERTA UN NUEVO VALOR
+      this.telefonoService.insertTelefono(phoneForm.value);
+      this.toastr_service.success("Exito","Registro Almacenado");
+    } else {  // SE MODIFICA UN VALOR
+      this.telefonoService.updateTelefono(phoneForm.value)
+      this.toastr_service.success("Exito", "Registro modificado");
+    }
+   
     this.resetForm(phoneForm);
   }
 

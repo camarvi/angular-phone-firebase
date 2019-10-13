@@ -3,8 +3,18 @@
         <h6 class="text-center">Listin Telefónico</h6>
         <table class="table table-sm table-hover">
             <tbody>
-                <tr>
-                    
+                <tr *ngFor="let phone of ListaTelefonos">
+                    <td>{{phone.centro}}</td>
+                    <td>{{phone.ubicacion}}</td>
+                    <td>{{phone.numero}}</td>
+                    <td>
+                        <a class="btn btn-secondary text-white" (click)="onEdit(phone)">
+                            <i class="far fa-edit "></i>
+                        </a>
+                        <a class="btn btn-danger text-white" (click)="onDelete(phone.$key)">
+                            <i class="far fa-trash-alt"></i>
+                        </a>
+                    </td>
                 </tr>
             </tbody>
         </table>

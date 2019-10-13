@@ -1,6 +1,10 @@
 <div class="card mt-5">
     <div class="card-body">
         <form #phoneForm="ngForm" (ngSubmit)="onSubmit(phoneForm)">
+            <!-- Añadimos un campo oculto para controlar si 
+            estamos añadiendo o editando un dato-->
+            <input type="hidden" name="$key" #key="ngModel" [(ngModel)]="telefonoService.selectedTelefono.$key">    
+
             <div class="form-group">
                 <input type="text" class="form-control" name="centro" #centro="ngModel"
                     [(ngModel)]="telefonoService.selectedTelefono.centro" placeholder="Añadir centro">
