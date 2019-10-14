@@ -1,9 +1,28 @@
-<nav class="navbar navbar-dark bg-dark">
-  <a href="/" class="navbar-brand">
-    Listin Tel&eacute;fonos
-  </a>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<a class="navbar-brand" href="#">Listin Telefonico</a>
+
+	<ul class="navbar-nav">
+			<li class="nav-item">
+					<a class="nav-link" [routerLink]="['/telefono']" [routerLinkActive]="['active']"> Home </a>
+				</li>
+		<li class="nav-item">
+			<a class="nav-link" [routerLink]="[ '/lista-telefonos']">Listado</a>
+		</li>
+	
+
+	</ul>
+
+
 </nav>
 
 
-<app-telefonos></app-telefonos>
+
+
+<router-outlet></router-outlet>
+
+
+<!--
+	<app-telefonos></app-telefonos>
+-->
+
 
